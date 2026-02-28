@@ -21,3 +21,5 @@
 
 /* Enable caps-lock LED */
 #define CAPS_LOCK_LED_INDEX 47
+
+#define LONG_TAPPING_TERM 1000
