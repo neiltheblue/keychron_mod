@@ -14,6 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+* For home row mods see: https://github.com/bjoreman/qmk_firmware/blob/master/keyboards/kyria/keymaps/bjoreman/keymap.c
+* and: https://bjoreman.com/diary/2021/2021-01-24.html
+*/
+
 #include QMK_KEYBOARD_H
 
 // clang-format off
