@@ -1,5 +1,6 @@
 #!/bin/bash
 
+make git-submodule
 qmk clean
 qmk compile -kb keychron/v10/iso_encoder -km default
 echo "Unplug keyboard and re-plug with ESC held down"
