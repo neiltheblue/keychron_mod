@@ -33,12 +33,14 @@ enum layers{
 #define KC_TASK LGUI(KC_TAB)
 #define KC_FLXP LGUI(KC_E)
 
-#define C_S LCTL_T(KC_S)
-#define A_D LALT_T(KC_D)
-#define S_F LSFT_T(KC_F)
-#define S_J RSFT_T(KC_J)
-#define A_K LALT_T(KC_K)
-#define C_L RCTL_T(KC_L)
+#define G_A  LGUI_T(KC_A)
+#define C_S  LCTL_T(KC_S)
+#define A_D  LALT_T(KC_D)
+#define S_F  LSFT_T(KC_F)
+#define S_J  RSFT_T(KC_J)
+#define A_K  RALT_T(KC_K)
+#define C_L  RCTL_T(KC_L)
+#define G_SC RGUI_T(KC_SCLN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MAC_BASE] = LAYOUT_iso_90(
@@ -61,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MUTE,  KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,     KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_INS,             KC_DEL,
         _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,            KC_PGUP,
         _______,  KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_PGDN,
-        _______,  KC_ESC,   KC_A,     C_S,      A_D,      S_F,      KC_G,      KC_H,     S_J,      A_K,     C_L,     KC_SCLN,  KC_QUOT,  KC_NUHS,  KC_ENT,             KC_HOME,
+        _______,  KC_ESC,   G_A,      C_S,      A_D,      S_F,      KC_G,      KC_H,     S_J,      A_K,      C_L,      G_SC,     KC_QUOT,  KC_NUHS,  KC_ENT,             KC_HOME,
         _______,  KC_LSFT,  KC_NUBS,  KC_Z,     KC_X,     KC_C,     KC_V,      KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_UP,
         _______,  KC_LCTL,  KC_LWIN,            KC_LALT,  KC_SPC,  MO(WIN_FN),                     KC_SPC,             KC_RALT,                      KC_LEFT,  KC_DOWN,  KC_RGHT),
 
@@ -85,18 +87,23 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LGUI_T(KC_A):
+                    return TAPPING_TERM + LONG_TAPPING_TERM;
         case LCTL_T(KC_S):
-            return TAPPING_TERM + LONG_TAPPING_TERM;
+                    return TAPPING_TERM + LONG_TAPPING_TERM;
         case LALT_T(KC_D):
-            return TAPPING_TERM + LONG_TAPPING_TERM;
-        case LGUI_T(KC_F):
-            return TAPPING_TERM + LONG_TAPPING_TERM;
-        case RCTL_T(KC_J):
-            return TAPPING_TERM + LONG_TAPPING_TERM;
+                    return TAPPING_TERM + LONG_TAPPING_TERM;
+        case LSFT_T(KC_F):
+                    return TAPPING_TERM + LONG_TAPPING_TERM;
+        case RSFT_T(KC_J):
+                    return TAPPING_TERM + LONG_TAPPING_TERM;
         case RALT_T(KC_K):
-            return TAPPING_TERM + LONG_TAPPING_TERM;
-        case RGUI_T(KC_L):
-            return TAPPING_TERM + LONG_TAPPING_TERM;
+                    return TAPPING_TERM + LONG_TAPPING_TERM;
+        case RCTL_T(KC_L):
+                    return TAPPING_TERM + LONG_TAPPING_TERM;
+        case RGUI_T(KC_SCLN):
+                    return TAPPING_TERM + LONG_TAPPING_TERM;
+
         default:
             return TAPPING_TERM;
     }
